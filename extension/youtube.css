@@ -1,0 +1,11 @@
+#masthead-ad, #player-ads, #panels ytd-ads-engagement-panel-content-renderer,
+ytd-ad-slot-renderer, ytd-in-feed-ad-layout-renderer, ytd-banner-promo-renderer,
+ytd-promoted-sparkles-web-renderer, ytd-display-ad-renderer, ytd-promoted-video-renderer,
+ytd-companion-slot-renderer, ytd-action-companion-ad-renderer, ytd-statement-banner-renderer,
+ytd-merch-shelf-renderer, ytm-promoted-sparkles-web-renderer,
+.ytp-ad-overlay-container, .ytp-ad-overlay-slot, .ytp-ad-image-overlay,
+.video-ads.ytp-ad-module, .ytd-primetime-promo-renderer,
+ytd-rich-item-renderer:has(ytd-ad-slot-renderer),
+ytd-rich-section-renderer:has(ytd-statement-banner-renderer) {
+  display: none !important;
+}

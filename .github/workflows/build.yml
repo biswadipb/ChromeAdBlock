@@ -1,0 +1,37 @@
+name: Build extension
+
+on:
+  schedule:
+    - cron: "37 4 * * *"   # daily, 04:37 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to create/update the release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert filter lists
+        run: python3 tools/convert_chrome.py
+
+      - name: Package the ready-to-load extension
+        run: |
+          mkdir -p dist && rm -f dist/ChromeAdBlock.zip
+          (cd extension && zip -qr ../dist/ChromeAdBlock.zip .)
+          ls -la dist
+
+      - name: Publish to the rolling "latest" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TOTAL=$(python3 -c 'import json;print(sum(r["count"] for r in json.load(open("extension/meta.json"))["rulesets"]))')
+          NOTES="Rebuilt $(date -u +'%Y-%m-%d %H:%M UTC') with $TOTAL network rules. Unzip, then load the folder at chrome://extensions (Developer mode → Load unpacked)."
+          if gh release view latest >/dev/null 2>&1; then
+            gh release upload latest dist/ChromeAdBlock.zip --clobber
+            gh release edit latest --notes "$NOTES"
+          else
+            gh release create latest dist/ChromeAdBlock.zip --title "Latest build" --notes "$NOTES"
+          fi

@@ -1,0 +1,8 @@
+ins.adsbygoogle, .adsbygoogle, [id^="google_ads_"], [id^="div-gpt-ad"], [id^="ad-slot"],
+iframe[src*="doubleclick.net"], iframe[src*="googlesyndication"], iframe[id^="google_ads"],
+a[href*="doubleclick.net/"], a[href*="googleadservices.com"],
+.ad-banner, .ad-container, .ad-wrapper, .ad-slot, .ad-unit, .advert, .advertisement, .sponsored-ad,
+.banner-ad, .top-ad, .sidebar-ad, .sticky-ad, .dfp-ad, .gpt-ad, .taboola, .outbrain, [id^="taboola-"],
+[class*="OUTBRAIN"], [data-ad-slot], [data-ad-client], [aria-label="Advertisement"], [aria-label="advertisement"] {
+  display: none !important;
+}
