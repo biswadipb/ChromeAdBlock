@@ -15,13 +15,21 @@ import argparse, json, os, re, shutil, sys, urllib.request
 from collections import defaultdict
 
 ADULT = "https://raw.githubusercontent.com/easylist/easylist/master/easylist_adult/"
+UB = "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/"
+AG = "https://filters.adtidy.org/extension/ublock/filters/"
 GROUPS = [  # order = priority when Chrome cannot enable every ruleset
     ("easylist", ["https://easylist.to/easylist/easylist.txt"]),
+    ("adguard-base", [AG + "2.txt"]),
     ("easyprivacy", ["https://easylist.to/easylist/easyprivacy.txt"]),
+    ("ublock-privacy", [UB + "privacy.txt"]),
     ("annoyance", ["https://easylist.to/easylist/fanboy-annoyance.txt"]),
+    ("adguard-annoyances", [AG + "14.txt"]),
     ("cookies", ["https://secure.fanboy.co.nz/fanboy-cookiemonster.txt"]),
     ("malware", ["https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-agh-online.txt",
-                 "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt"]),
+                 "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
+                 UB + "badware.txt"]),
+    ("phishing", ["https://malware-filter.gitlab.io/malware-filter/phishing-filter-agh.txt"]),
+    ("ublock-filters", [UB + "filters.txt"]),
     ("adult", [ADULT + n + ".txt" for n in
                ("adult_adservers", "adult_thirdparty", "adult_specific_block", "adult_specific_hide")]),
     ("nocoin", ["https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt"]),

@@ -88,6 +88,11 @@
         "path": "rulesets/easylist-2.json"
       },
       {
+        "id": "adguard-base-1",
+        "enabled": false,
+        "path": "rulesets/adguard-base-1.json"
+      },
+      {
         "id": "easyprivacy-1",
         "enabled": false,
         "path": "rulesets/easyprivacy-1.json"
@@ -98,14 +103,39 @@
         "path": "rulesets/easyprivacy-2.json"
       },
       {
+        "id": "ublock-privacy-1",
+        "enabled": false,
+        "path": "rulesets/ublock-privacy-1.json"
+      },
+      {
         "id": "annoyance-1",
         "enabled": false,
         "path": "rulesets/annoyance-1.json"
       },
       {
+        "id": "adguard-annoyances-1",
+        "enabled": false,
+        "path": "rulesets/adguard-annoyances-1.json"
+      },
+      {
         "id": "malware-1",
         "enabled": false,
         "path": "rulesets/malware-1.json"
+      },
+      {
+        "id": "phishing-1",
+        "enabled": false,
+        "path": "rulesets/phishing-1.json"
+      },
+      {
+        "id": "phishing-2",
+        "enabled": false,
+        "path": "rulesets/phishing-2.json"
+      },
+      {
+        "id": "ublock-filters-1",
+        "enabled": false,
+        "path": "rulesets/ublock-filters-1.json"
       },
       {
         "id": "nocoin-1",

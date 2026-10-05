@@ -33,7 +33,7 @@ Then follow steps 3 to 5 above, choosing the `extension` folder inside the repo.
    ```js
    chrome.declarativeNetRequest.getEnabledRulesets()
    ```
-   You should see about eight entries, such as `core`, `easylist-1`, `easylist-2`, `easyprivacy-1`, and so on.
+   You should see about 14 entries, such as `core`, `easylist-1`, `easylist-2`, `adguard-base-1`, `easyprivacy-1`, and so on.
 
 ## Updating
 
@@ -60,7 +60,7 @@ Click **Errors** and read the message. Rule-parsing problems appear here. Open a
 
 ### Fewer rule lists are enabled than expected
 
-Chrome shares a pool of 330,000 static rules among all your extensions, and this extension needs about 126,000. If other extensions use much of the pool, the lower-priority lists (adult, trackers) are skipped. Disable another ad blocker you no longer need, then reload this extension.
+Chrome shares a pool of 330,000 static rules among all your extensions, and this extension needs about 193,000. If other extensions use much of the pool, the lowest-priority lists (the ones at the end of the `GROUPS` list in `tools/convert_chrome.py`) are skipped. Disable another ad blocker you no longer need, then reload this extension.
 
 ### YouTube shows a dark screen and a spinner for as long as an ad would last
 
